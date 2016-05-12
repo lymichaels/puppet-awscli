@@ -3,8 +3,8 @@
 # This module manages awscli dependencies for redhat $::osfamily.
 #
 class awscli::deps::redhat {
-  include ::epel
-  Package { require => Class['epel'] }
+  #include ::epel
+  #Package { require => Class['epel'] }
 
   if ! defined(Package[ $awscli::pkg_dev ]) {
     package { $awscli::pkg_dev: ensure => installed }
