@@ -38,6 +38,11 @@ class awscli (
 ) inherits awscli::params {
   include awscli::deps
 
+  file { '/usr/bin/pip-python':
+    ensure => 'link',
+    target => '/usr/bin/pip',
+  }
+
   package { 'awscli':
     ensure   => $version,
     provider => 'pip',
