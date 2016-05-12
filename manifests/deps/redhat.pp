@@ -12,4 +12,9 @@ class awscli::deps::redhat {
   if ! defined(Package[ $awscli::pkg_pip ]) {
     package { $awscli::pkg_pip: ensure => installed }
   }
+
+  file { '/usr/bin/pip-python':
+    ensure => 'link',
+    target => '/usr/bin/pip',
+  }
 }
